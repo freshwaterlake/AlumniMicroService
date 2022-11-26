@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("api/profile")
 public class BasicProfileController {
 
     @Autowired
     BasicProfileRepository repository;
 
-    @GetMapping("/{id}/basicInfo")
-    public ResponseEntity<BasicProfile> getByAlumniId(@PathVariable("id") UUID userGuid) {
-        return new ResponseEntity<>(repository.findByUserGuid(userGuid),
+    @GetMapping("/{guid}/basicInfo")
+    public ResponseEntity<BasicProfile> getByAlumniId(@PathVariable("guid") UUID guid) {
+        return new ResponseEntity<>(repository.findByUserGuid(guid),
             HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/basicInfo")
+    @PutMapping("/{guid}/basicInfo")
     public ResponseEntity<BasicProfile> save(@RequestBody BasicProfile basicProfile) {
         return new ResponseEntity<>(repository.save(basicProfile), HttpStatus.OK);
     }

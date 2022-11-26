@@ -9,6 +9,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 @Data
 @AllArgsConstructor
@@ -18,9 +19,13 @@ public abstract class AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Type(type="uuid-char")
     private UUID userGuid;
+
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
+
     @Version
     private int version;
 
