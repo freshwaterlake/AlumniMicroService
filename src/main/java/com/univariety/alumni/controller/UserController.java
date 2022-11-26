@@ -1,6 +1,6 @@
 package com.univariety.alumni.controller;
 
-import com.univariety.alumni.domain.Alumni;
+import com.univariety.alumni.domain.User;
 import com.univariety.alumni.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,18 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/alumni")
+@RequestMapping("api/user")
 public class UserController {
+
     @Autowired
     UserRepository repository;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Alumni> findById(@PathVariable("id") Long id) {
-        return new ResponseEntity<Alumni>(repository.getReferenceById(id), HttpStatus.OK);
+    @GetMapping("/{id}/user")
+    public ResponseEntity<User> findById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(repository.getReferenceById(id), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Alumni> save(@RequestBody Alumni alumni) {
-        return new ResponseEntity<Alumni>(repository.save(alumni), HttpStatus.OK);
+    @PutMapping("/{id}/user")
+    public ResponseEntity<User> save(@RequestBody User user) {
+        return new ResponseEntity<>(repository.save(user), HttpStatus.OK);
     }
 }
