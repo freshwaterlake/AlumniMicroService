@@ -30,7 +30,7 @@ public class PreferencesTests {
     @Test
     void updateExistingSkill() {
         UUID preferenceId = UUID.fromString("e823e2e2-05b0-4fd6-baf7-585293708434");
-        Skill skill = new Skill("PROGRAMMING-ONE", "INTERMEDIATE-ONE");
+        Skill skill = new Skill("PROGRAMMING-THREE", "INTERMEDIATE-THREE");
         skill.setId(2L);
         Preferences preferences = service.addSkill(preferenceId, skill);
         System.out.println("Preferences = " + preferences.toString());

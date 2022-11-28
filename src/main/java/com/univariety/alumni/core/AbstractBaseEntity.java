@@ -11,16 +11,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @MappedSuperclass
 @ToString
 public abstract class AbstractBaseEntity {
 
-    private final LocalDateTime createdAt;
-    private final LocalDateTime updatedAt;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,9 +35,10 @@ public abstract class AbstractBaseEntity {
     @Version
     private int version;
 
-    public AbstractBaseEntity() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
 }
