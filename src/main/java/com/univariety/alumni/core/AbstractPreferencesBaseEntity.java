@@ -1,7 +1,8 @@
 package com.univariety.alumni.core;
 
-import com.univariety.alumni.domain.ProfileInfo;
+import com.univariety.alumni.domain.Preferences;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class AbstractBaseEntity {
+public abstract class AbstractPreferencesBaseEntity {
 
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
@@ -27,14 +28,34 @@ public abstract class AbstractBaseEntity {
 
     @OneToOne
     @JoinColumn(name = "user_guid", referencedColumnName = "id")
-    private ProfileInfo profileInfo;
+    private Preferences preferences;
 
     @Version
     private int version;
 
-    public AbstractBaseEntity() {
+    public AbstractPreferencesBaseEntity() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this.id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        AbstractPreferencesBaseEntity other = (AbstractPreferencesBaseEntity) obj;
+        return Objects.equals(this.id, other.getId());
     }
 
 }
