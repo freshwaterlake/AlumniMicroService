@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.subdomain.profile;
 
-import com.univariety.alumni.core.AbstractBaseEntity;
+import com.univariety.alumni.core.AbstractProfileInfoBaseEntity;
 import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class BasicProfile extends AbstractBaseEntity {
+public class BasicProfile extends AbstractProfileInfoBaseEntity {
 
     private String firstName;
     private String lastName;

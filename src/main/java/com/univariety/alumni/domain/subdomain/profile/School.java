@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.subdomain.profile;
 
-import com.univariety.alumni.core.AbstractBaseEntity;
+import com.univariety.alumni.core.AbstractProfileInfoBaseEntity;
 import java.sql.Date;
 import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class School extends AbstractBaseEntity {
+public class School extends AbstractProfileInfoBaseEntity {
 
     private String schoolCode;
     private String curriculumCode;

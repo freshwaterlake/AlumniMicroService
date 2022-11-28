@@ -21,7 +21,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class AbstractBaseEntity {
+public abstract class AbstractProfileInfoBaseEntity {
 
 
     @Id

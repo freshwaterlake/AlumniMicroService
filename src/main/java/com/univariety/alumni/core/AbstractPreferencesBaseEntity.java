@@ -24,7 +24,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 @ToString
 public abstract class AbstractPreferencesBaseEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
