@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends AbstractBaseEntity {
+public class AppliedCollege extends AbstractBaseEntity {
 
-    private Long parentId;
-    private String sourceCode;
+    private String collegeCode;
+    private String fieldOfStudyCode;
+    private String applicationStatusCode;
 }

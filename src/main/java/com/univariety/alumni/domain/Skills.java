@@ -10,9 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class AppliedColleges extends AbstractBaseEntity {
-
-    private String collegeCode;
-    private String fieldOfStudyCode;
-    private String applicationStatusCode;
+public class Skills extends AbstractBaseEntity {
+    private String skillCode;
+    private String skillLevelCode;
 }

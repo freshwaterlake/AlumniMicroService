@@ -1,27 +1,24 @@
 package com.univariety.alumni.core;
 
-import com.univariety.alumni.domain.ProfileInfo;
 import java.time.LocalDateTime;
+import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import lombok.AllArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 @AllArgsConstructor
 @MappedSuperclass
-public abstract class AbstractBaseEntity {
+public abstract class AbstractAggregateRootEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @OneToOne
-    @JoinColumn(name = "user_guid", referencedColumnName = "id")
-    private ProfileInfo profileInfo;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", columnDefinition = "BINARY(16)")
+    private UUID id;
 
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
@@ -29,7 +26,7 @@ public abstract class AbstractBaseEntity {
     @Version
     private int version;
 
-    public AbstractBaseEntity() {
+    public AbstractAggregateRootEntity() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }

@@ -1,7 +1,8 @@
 package com.univariety.alumni.controller;
 
-import com.univariety.alumni.domain.User;
-import com.univariety.alumni.repository.UserRepository;
+import com.univariety.alumni.domain.ProfileInfo;
+import com.univariety.alumni.repository.ProfileInfoRepository;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    UserRepository repository;
+    ProfileInfoRepository repository;
 
     @GetMapping("/{id}/user")
-    public ResponseEntity<User> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<ProfileInfo> findById(@PathVariable("id") UUID id) {
         return new ResponseEntity<>(repository.getReferenceById(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}/user")
-    public ResponseEntity<User> save(@RequestBody User user) {
-        return new ResponseEntity<>(repository.save(user), HttpStatus.OK);
+    public ResponseEntity<ProfileInfo> save(@RequestBody ProfileInfo profileInfo) {
+        return new ResponseEntity<>(repository.save(profileInfo), HttpStatus.OK);
     }
 }
