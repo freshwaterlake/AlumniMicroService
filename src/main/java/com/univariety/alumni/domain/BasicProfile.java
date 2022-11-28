@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class BasicProfile extends AbstractBaseEntity {
 
     private String firstName;

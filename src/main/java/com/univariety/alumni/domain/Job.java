@@ -13,11 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Job extends AbstractBaseEntity {
 
-
     private String designationCode;
     private String companyCode;
     private Date startDate;
     private Date endDate;
     private Boolean isCurrent;
-
 }

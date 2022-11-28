@@ -23,4 +23,13 @@ public class ProfileInfoService {
         profileInfo.addBasicInfo(basicProfile);
         return repository.save(profileInfo);
     }
+
+    public ProfileInfo updateBasicProfile(UUID profileId, BasicProfile basicProfile) {
+        ProfileInfo profileInfo = repository.getReferenceById(profileId);
+        profileInfo.getBasicProfile().setFirstName(basicProfile.getFirstName());
+        profileInfo.getBasicProfile().setLastName(basicProfile.getLastName());
+        profileInfo.getBasicProfile().setEmail(basicProfile.getEmail());
+        profileInfo.getBasicProfile().setEmail(basicProfile.getEmail());
+        return repository.save(profileInfo);
+    }
 }
