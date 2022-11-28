@@ -1,5 +1,6 @@
 package com.univariety.alumni.core;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.univariety.alumni.domain.aggregate.Preferences;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -29,7 +30,7 @@ public abstract class AbstractPreferencesBaseEntity {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "user_guid", referencedColumnName = "id")
+    @JoinColumn(name = "user_guid", referencedColumnName = "id", nullable = false)
     private Preferences preferences;
 
     @Version
@@ -40,6 +41,12 @@ public abstract class AbstractPreferencesBaseEntity {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    // Note: With out @JsonBackReference, JSON response is going into infinite loop
+    @JsonBackReference
+    public Preferences getPreferences() {
+        return preferences;
+    }
 
     @Override
     public int hashCode() {

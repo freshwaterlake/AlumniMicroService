@@ -13,14 +13,19 @@ public class ProfileInfoService {
     @Autowired
     ProfileInfoRepository repository;
 
+    public ProfileInfo getById(UUID profileId){
+        return repository.getReferenceById(profileId);
+    }
+
     public ProfileInfo createProfile(String source) {
         ProfileInfo profileInfo = new ProfileInfo(source);
         return repository.save(profileInfo);
     }
 
-    public ProfileInfo save(UUID profileId, BasicProfile basicProfile) {
-        ProfileInfo profileInfo = repository.getReferenceById(profileId);
-        profileInfo.addBasicInfo(basicProfile);
+    public ProfileInfo save(UUID profileId, ProfileInfo profileInfo) {
+        ProfileInfo profile = repository.getReferenceById(profileId);
+        profile.setBasicInfo(profileInfo.getBasicProfile());
+        profile.setSchool(profileInfo.getSchool());
         return repository.save(profileInfo);
     }
 

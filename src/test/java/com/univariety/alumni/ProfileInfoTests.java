@@ -27,7 +27,8 @@ class ProfileInfoTests {
         Address address = new Address("Central London", "Boston Creek", "LONDON", "UK", "123456");
         BasicProfile basicProfile = new BasicProfile("John", "Doe", "MALE", "john.doe@gmail.com",
             "1234567890", true, "My Headline", "STUDENT", address);
-        profileInfo = service.save(profileInfo.getId(), basicProfile);
+        profileInfo.setBasicInfo(basicProfile);
+        profileInfo = service.save(profileInfo.getId(), profileInfo);
         System.out.println("BasicProfile = " + basicProfile.toString());
     }
 

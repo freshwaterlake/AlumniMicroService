@@ -1,7 +1,7 @@
 package com.univariety.alumni.controller;
 
 import com.univariety.alumni.domain.aggregate.ProfileInfo;
-import com.univariety.alumni.repository.ProfileInfoRepository;
+import com.univariety.alumni.service.ProfileInfoService;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/user")
-public class UserController {
+@RequestMapping("api/profileInfo")
+public class ProfileInfoController {
 
     @Autowired
-    ProfileInfoRepository repository;
+    ProfileInfoService service;
 
-    @GetMapping("/{id}/user")
+    @GetMapping("/{id}")
     public ResponseEntity<ProfileInfo> findById(@PathVariable("id") UUID id) {
-        return new ResponseEntity<>(repository.getReferenceById(id), HttpStatus.OK);
+        return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/user")
-    public ResponseEntity<ProfileInfo> save(@RequestBody ProfileInfo profileInfo) {
-        return new ResponseEntity<>(repository.save(profileInfo), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<ProfileInfo> save(@PathVariable("id") UUID profileId, @RequestBody ProfileInfo profileInfo) {
+        return new ResponseEntity<>(service.save(profileId, profileInfo), HttpStatus.OK);
     }
 }

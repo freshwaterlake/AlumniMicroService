@@ -12,12 +12,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Data
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
@@ -40,13 +40,22 @@ public class ProfileInfo extends AbstractAggregateRootEntity {
         this.sourceCode = sourceCode;
     }
 
-    public ProfileInfo addBasicInfo(BasicProfile basicProfile) {
+    public ProfileInfo setBasicInfo(BasicProfile basicProfile) {
+        if (basicProfile == null) {
+            return this;
+        }
+
         this.basicProfile = basicProfile;
         this.basicProfile.setProfileInfo(this);
         return this;
     }
 
-    public ProfileInfo addSchool(School school) {
+    public ProfileInfo setSchool(School school) {
+        // Note: Check for null and return
+        if (school == null) {
+            return this;
+        }
+
         this.school = school;
         this.school.setProfileInfo(this);
         return this;

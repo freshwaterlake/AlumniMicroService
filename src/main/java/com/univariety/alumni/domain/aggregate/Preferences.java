@@ -8,12 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Data
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -23,7 +23,14 @@ public class Preferences extends AbstractAggregateRootEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "preferences")
     private Set<Skill> skills;
 
-    public void addSkill(Skill skill) {
+    public Preferences setSkills(Set<Skill> skills) {
+        for (Skill skill : skills) {
+            this.addSkill(skill);
+        }
+        return this;
+    }
+
+    private void addSkill(Skill skill) {
         Boolean exists = false;
         for (Skill eSkill : this.skills) {
             if (eSkill.getId() == skill.getId()) {

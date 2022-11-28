@@ -1,7 +1,9 @@
 package com.univariety.alumni.core;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.univariety.alumni.domain.aggregate.ProfileInfo;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,13 +25,12 @@ import org.hibernate.annotations.UpdateTimestamp;
 @ToString
 public abstract class AbstractProfileInfoBaseEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "user_guid", referencedColumnName = "id")
+    @JoinColumn(name = "user_guid", referencedColumnName = "id", nullable = false)
     private ProfileInfo profileInfo;
 
     @Version
@@ -40,5 +41,30 @@ public abstract class AbstractProfileInfoBaseEntity {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    @JsonBackReference
+    public ProfileInfo getProfileInfo() {
+        return profileInfo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this.id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        AbstractProfileInfoBaseEntity other = (AbstractProfileInfoBaseEntity) obj;
+        return Objects.equals(this.id, other.getId());
+    }
 
 }
