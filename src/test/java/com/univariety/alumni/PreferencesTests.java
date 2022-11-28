@@ -1,7 +1,7 @@
 package com.univariety.alumni;
 
-import com.univariety.alumni.domain.Preferences;
-import com.univariety.alumni.domain.Skill;
+import com.univariety.alumni.domain.aggregate.Preferences;
+import com.univariety.alumni.domain.subdomain.preference.Skill;
 import com.univariety.alumni.service.PreferencesService;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;

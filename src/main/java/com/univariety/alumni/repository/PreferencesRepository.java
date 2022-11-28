@@ -1,8 +1,7 @@
 package com.univariety.alumni.repository;
 
 import com.univariety.alumni.core.BaseRepository;
-import com.univariety.alumni.domain.Preferences;
-import com.univariety.alumni.domain.ProfileInfo;
+import com.univariety.alumni.domain.aggregate.Preferences;
 
 public interface PreferencesRepository extends BaseRepository<Preferences> {
 

@@ -1,8 +1,8 @@
 package com.univariety.alumni;
 
-import com.univariety.alumni.domain.Address;
-import com.univariety.alumni.domain.BasicProfile;
-import com.univariety.alumni.domain.ProfileInfo;
+import com.univariety.alumni.domain.subdomain.profile.Address;
+import com.univariety.alumni.domain.subdomain.profile.BasicProfile;
+import com.univariety.alumni.domain.aggregate.ProfileInfo;
 import com.univariety.alumni.service.ProfileInfoService;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;

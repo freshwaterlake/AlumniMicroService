@@ -1,6 +1,6 @@
 package com.univariety.alumni.core;
 
-import com.univariety.alumni.domain.Preferences;
+import com.univariety.alumni.domain.aggregate.Preferences;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.GeneratedValue;

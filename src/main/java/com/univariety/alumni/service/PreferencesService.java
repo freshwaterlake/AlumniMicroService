@@ -1,7 +1,7 @@
 package com.univariety.alumni.service;
 
-import com.univariety.alumni.domain.Preferences;
-import com.univariety.alumni.domain.Skill;
+import com.univariety.alumni.domain.aggregate.Preferences;
+import com.univariety.alumni.domain.subdomain.preference.Skill;
 import com.univariety.alumni.repository.PreferencesRepository;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

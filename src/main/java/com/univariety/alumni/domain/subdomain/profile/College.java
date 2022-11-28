@@ -1,4 +1,4 @@
-package com.univariety.alumni.domain;
+package com.univariety.alumni.domain.subdomain.profile;
 
 import com.univariety.alumni.core.AbstractBaseEntity;
 import java.sql.Date;
@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Job extends AbstractBaseEntity {
+public class College extends AbstractBaseEntity {
 
-    private String designationCode;
-    private String companyCode;
+    private String collegeCode;
+    private String fieldOfStudyCode;
     private Date startDate;
-    private Date endDate;
-    private Boolean isCurrent;
+    private Date completionDate;
+
 }

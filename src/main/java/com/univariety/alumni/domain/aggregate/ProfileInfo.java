@@ -1,6 +1,9 @@
-package com.univariety.alumni.domain;
+package com.univariety.alumni.domain.aggregate;
 
 import com.univariety.alumni.core.AbstractAggregateRootEntity;
+import com.univariety.alumni.domain.subdomain.profile.AppliedCollege;
+import com.univariety.alumni.domain.subdomain.profile.BasicProfile;
+import com.univariety.alumni.domain.subdomain.profile.School;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;

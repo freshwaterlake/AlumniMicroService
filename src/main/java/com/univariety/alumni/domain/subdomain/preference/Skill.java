@@ -1,4 +1,4 @@
-package com.univariety.alumni.domain;
+package com.univariety.alumni.domain.subdomain.preference;
 
 import com.univariety.alumni.core.AbstractPreferencesBaseEntity;
 import javax.persistence.Entity;

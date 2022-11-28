@@ -1,4 +1,4 @@
-package com.univariety.alumni.domain;
+package com.univariety.alumni.domain.subdomain.profile;
 
 import javax.persistence.Embeddable;
 import lombok.AllArgsConstructor;

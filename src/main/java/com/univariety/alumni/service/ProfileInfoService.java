@@ -1,7 +1,7 @@
 package com.univariety.alumni.service;
 
-import com.univariety.alumni.domain.BasicProfile;
-import com.univariety.alumni.domain.ProfileInfo;
+import com.univariety.alumni.domain.subdomain.profile.BasicProfile;
+import com.univariety.alumni.domain.aggregate.ProfileInfo;
 import com.univariety.alumni.repository.ProfileInfoRepository;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

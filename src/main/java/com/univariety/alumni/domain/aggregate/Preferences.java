@@ -1,6 +1,7 @@
-package com.univariety.alumni.domain;
+package com.univariety.alumni.domain.aggregate;
 
 import com.univariety.alumni.core.AbstractAggregateRootEntity;
+import com.univariety.alumni.domain.subdomain.preference.Skill;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

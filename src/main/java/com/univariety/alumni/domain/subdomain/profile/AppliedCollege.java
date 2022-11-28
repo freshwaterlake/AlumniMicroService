@@ -1,4 +1,4 @@
-package com.univariety.alumni.domain;
+package com.univariety.alumni.domain.subdomain.profile;
 
 import com.univariety.alumni.core.AbstractBaseEntity;
 import javax.persistence.Entity;

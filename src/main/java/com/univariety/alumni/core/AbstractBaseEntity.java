@@ -1,6 +1,6 @@
 package com.univariety.alumni.core;
 
-import com.univariety.alumni.domain.ProfileInfo;
+import com.univariety.alumni.domain.aggregate.ProfileInfo;
 import java.time.LocalDateTime;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
