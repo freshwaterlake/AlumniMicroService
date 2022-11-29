@@ -33,7 +33,7 @@ public class Preferences extends AbstractAggregateRootEntity {
     private void addSkill(Skill skill) {
         Boolean exists = false;
         for (Skill eSkill : this.skills) {
-            if (eSkill.getId() == skill.getId()) {
+            if (eSkill.getId() != null && eSkill.getId() == skill.getId()) {
                 exists = true;
                 eSkill.setSkillCode(skill.getSkillCode());
                 eSkill.setSkillLevelCode(skill.getSkillLevelCode());

@@ -1,10 +1,9 @@
-package com.univariety.alumni;
+package com.univariety.alumni.jnuit;
 
+import com.univariety.alumni.domain.aggregate.ProfileInfo;
 import com.univariety.alumni.domain.subdomain.profile.Address;
 import com.univariety.alumni.domain.subdomain.profile.BasicProfile;
-import com.univariety.alumni.domain.aggregate.ProfileInfo;
 import com.univariety.alumni.service.ProfileInfoService;
-import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,12 +31,12 @@ class ProfileInfoTests {
         System.out.println("BasicProfile = " + basicProfile.toString());
     }
 
-    @Test
-    void updateBasicProfile() {
-        UUID profileId = UUID.fromString("fd3c4882-6fe4-4596-8689-aa3a82d99d73");
-        BasicProfile basicProfile = new BasicProfile("Jane", "Doe", "MALE", "jane.doe@gmail.com",
-            "1234567890", true, "My Headline", "STUDENT", null);
-        ProfileInfo profileInfo = service.updateBasicProfile(profileId, basicProfile);
-        System.out.println("ProfileInfo = " + profileInfo.toString());
-    }
+//    @Test
+//    void updateBasicProfile() {
+//        UUID profileId = UUID.fromString("fd3c4882-6fe4-4596-8689-aa3a82d99d73");
+//        BasicProfile basicProfile = new BasicProfile("Jane", "Doe", "MALE", "jane.doe@gmail.com",
+//            "1234567890", true, "My Headline", "STUDENT", null);
+//        ProfileInfo profileInfo = service.updateBasicProfile(profileId, basicProfile);
+//        System.out.println("ProfileInfo = " + profileInfo.toString());
+//    }
 }
