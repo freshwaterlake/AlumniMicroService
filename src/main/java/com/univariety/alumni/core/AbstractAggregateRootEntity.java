@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -30,6 +31,7 @@ public abstract class AbstractAggregateRootEntity {
     private UUID id;
 
     @Version
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int version;
 
     @CreationTimestamp

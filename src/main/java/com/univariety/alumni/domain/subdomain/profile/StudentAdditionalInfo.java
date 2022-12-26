@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class Address {
+public class StudentAdditionalInfo {
 
     private String addressLine1;
     private String addressLine2;
-    private String cityCode;
-    private String countryCode;
-    private String pin;
+    private String pinOrZip;
+    private String class12CurriculumCode;
 }

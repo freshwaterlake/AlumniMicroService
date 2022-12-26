@@ -1,7 +1,7 @@
 package com.univariety.alumni.core;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.univariety.alumni.domain.aggregate.Preferences;
+import com.univariety.alumni.domain.aggregate.Student;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.GeneratedValue;
@@ -23,7 +23,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class AbstractPreferencesBaseEntity {
+public abstract class AbstractStudentBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public abstract class AbstractPreferencesBaseEntity {
 
     @OneToOne
     @JoinColumn(name = "user_guid", referencedColumnName = "id", nullable = false)
-    private Preferences preferences;
+    private Student student;
 
     @Version
     private int version;
@@ -42,10 +42,9 @@ public abstract class AbstractPreferencesBaseEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    // Note: With out @JsonBackReference, JSON response is going into infinite loop
     @JsonBackReference
-    public Preferences getPreferences() {
-        return preferences;
+    public Student getStudent() {
+        return student;
     }
 
     @Override
@@ -64,7 +63,7 @@ public abstract class AbstractPreferencesBaseEntity {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        AbstractPreferencesBaseEntity other = (AbstractPreferencesBaseEntity) obj;
+        AbstractStudentBaseEntity other = (AbstractStudentBaseEntity) obj;
         return Objects.equals(this.id, other.getId());
     }
 

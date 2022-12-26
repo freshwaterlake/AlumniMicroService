@@ -1,7 +1,7 @@
 package com.univariety.alumni.controller;
 
-import com.univariety.alumni.domain.aggregate.Preferences;
-import com.univariety.alumni.service.PreferencesService;
+import com.univariety.alumni.domain.aggregate.Achievement;
+import com.univariety.alumni.service.AchievementService;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,20 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/preferences")
-public class PreferencesController {
+@RequestMapping("api/{id}/achievement")
+public class AchievementController {
 
     @Autowired
-    PreferencesService service;
+    AchievementService service;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Preferences> findById(@PathVariable("id") UUID id) {
+    @GetMapping
+    public ResponseEntity<Achievement> findById(@PathVariable("id") UUID id) {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Preferences> save(@PathVariable("id") UUID profileId,
-        @RequestBody Preferences preferences) {
-        return new ResponseEntity<>(service.save(profileId, preferences), HttpStatus.OK);
+    @PutMapping
+    public ResponseEntity<Achievement> save(@PathVariable("id") String profileId,
+        @RequestBody Achievement achievement) {
+        return new ResponseEntity<>(service.save(UUID.fromString(profileId), achievement),
+            HttpStatus.OK);
     }
 }

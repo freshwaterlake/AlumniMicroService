@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Marks {
+public class StudentMarks {
 
     private Integer marks;
     private Integer points;

@@ -1,7 +1,8 @@
 package com.univariety.alumni.core;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.univariety.alumni.domain.aggregate.ProfileInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.univariety.alumni.domain.aggregate.Achievement;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class AbstractProfileInfoBaseEntity {
+public abstract class AbstractAchievementBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +32,11 @@ public abstract class AbstractProfileInfoBaseEntity {
 
     @OneToOne
     @JoinColumn(name = "user_guid", referencedColumnName = "id", nullable = false)
-    private ProfileInfo profileInfo;
+    @JsonIgnore
+    private Achievement achievement;
 
     @Version
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int version;
 
     @CreationTimestamp
@@ -42,9 +45,11 @@ public abstract class AbstractProfileInfoBaseEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    // Note: With out @JsonBackReference, JSON response is going into infinite loop
     @JsonBackReference
-    public ProfileInfo getProfileInfo() {
-        return profileInfo;
+
+    public Achievement getJobPreference() {
+        return achievement;
     }
 
     @Override
@@ -63,8 +68,7 @@ public abstract class AbstractProfileInfoBaseEntity {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        AbstractProfileInfoBaseEntity other = (AbstractProfileInfoBaseEntity) obj;
+        AbstractJobPreferenceBaseEntity other = (AbstractJobPreferenceBaseEntity) obj;
         return Objects.equals(this.id, other.getId());
     }
-
 }
