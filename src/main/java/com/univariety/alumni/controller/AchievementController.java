@@ -21,8 +21,8 @@ public class AchievementController {
     AchievementService service;
 
     @GetMapping
-    public ResponseEntity<Achievement> findById(@PathVariable("id") UUID id) {
-        return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
+    public ResponseEntity<Achievement> findById(@PathVariable("id") String id) {
+        return new ResponseEntity<>(service.getById(UUID.fromString(id)), HttpStatus.OK);
     }
 
     @PutMapping

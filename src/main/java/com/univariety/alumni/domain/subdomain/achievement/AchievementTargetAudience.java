@@ -1,9 +1,7 @@
 package com.univariety.alumni.domain.subdomain.achievement;
 
+import com.univariety.alumni.core.AbstractAchievementDetailBaseEntity;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,13 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class AchievementTargetAudience {
+public class AchievementTargetAudience extends AbstractAchievementDetailBaseEntity {
 
-    @Id
-    private Integer id;
     private String targetAudienceCode;
-
-    @OneToOne
-    @JoinColumn(name = "achievementId", referencedColumnName = "id", nullable = false)
-    private AchievementDetail achievementDetail;
 }

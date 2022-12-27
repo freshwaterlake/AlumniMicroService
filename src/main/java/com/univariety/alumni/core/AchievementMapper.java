@@ -17,6 +17,10 @@ public interface AchievementMapper {
     default void afterMapping(Achievement achievement, @MappingTarget Achievement achievementOut) {
         achievementOut.getAchievementDetails()
             .forEach(achievementDetail -> achievementDetail.setAchievement(achievement));
+
+        achievementOut.getAchievementDetails().forEach(
+            achievementDetail -> achievementDetail.getTargetAudience()
+                .forEach(target -> target.setAchievementDetail(achievementDetail)));
     }
 
 }

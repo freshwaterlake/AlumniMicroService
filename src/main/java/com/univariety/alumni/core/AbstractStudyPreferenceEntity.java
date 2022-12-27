@@ -43,7 +43,7 @@ public abstract class AbstractStudyPreferenceEntity {
     private LocalDateTime updatedAt;
 
     @JsonBackReference
-    public StudyPreference getProfileInfo() {
+    public StudyPreference getStudyPreference() {
         return studyPreference;
     }
 

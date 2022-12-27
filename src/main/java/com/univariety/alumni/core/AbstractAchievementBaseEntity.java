@@ -47,8 +47,7 @@ public abstract class AbstractAchievementBaseEntity {
 
     // Note: With out @JsonBackReference, JSON response is going into infinite loop
     @JsonBackReference
-
-    public Achievement getJobPreference() {
+    public Achievement getAchievement() {
         return achievement;
     }
 

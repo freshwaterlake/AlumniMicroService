@@ -1,7 +1,11 @@
 package com.univariety.alumni.domain.subdomain.achievement;
 
 import com.univariety.alumni.core.AbstractAchievementBaseEntity;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +23,6 @@ public class AchievementDetail extends AbstractAchievementBaseEntity {
     private String description;
     private String webLink;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "achievementDetail")
-//    private Set<AchievementTargetAudience> targetAudience = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "achievementDetail")
+    private Set<AchievementTargetAudience> targetAudience = new HashSet<>();
 }

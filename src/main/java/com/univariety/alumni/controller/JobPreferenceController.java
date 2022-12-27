@@ -8,24 +8,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/job-preference")
+@RequestMapping("api/{id}/job-preference")
 public class JobPreferenceController {
 
     @Autowired
     JobPreferenceService service;
 
-    @GetMapping("/{id}")
+    @GetMapping
     public ResponseEntity<JobPreference> findById(@PathVariable("id") UUID id) {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<JobPreference> save(@PathVariable("id") UUID profileId,
-//        @RequestBody JobPreference jobPreference) {
-//        return new ResponseEntity<>(service.save(profileId, jobPreference), HttpStatus.OK);
-//    }
+    @PutMapping
+    public ResponseEntity<JobPreference> save(@PathVariable("id") String profileId,
+        @RequestBody JobPreference jobPreference) {
+        return new ResponseEntity<>(service.save(UUID.fromString(profileId), jobPreference), HttpStatus.OK);
+    }
 }
