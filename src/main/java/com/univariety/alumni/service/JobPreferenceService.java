@@ -1,6 +1,6 @@
 package com.univariety.alumni.service;
 
-import com.univariety.alumni.core.JobPreferenceMapper;
+import com.univariety.alumni.core.mappers.JobPreferenceMapper;
 import com.univariety.alumni.domain.aggregate.JobPreference;
 import com.univariety.alumni.repository.JobPreferenceRepository;
 import java.util.UUID;

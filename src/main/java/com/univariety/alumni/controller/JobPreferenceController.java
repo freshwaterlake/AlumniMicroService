@@ -26,8 +26,7 @@ public class JobPreferenceController {
     }
 
     @PutMapping
-    public ResponseEntity<JobPreference> save(@PathVariable("id") String profileId,
-        @RequestBody JobPreference jobPreference) {
+    public ResponseEntity<JobPreference> save(@PathVariable("id") String profileId, @RequestBody JobPreference jobPreference) {
         return new ResponseEntity<>(service.save(UUID.fromString(profileId), jobPreference), HttpStatus.OK);
     }
 }

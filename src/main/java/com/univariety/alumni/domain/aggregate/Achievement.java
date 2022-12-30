@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.aggregate;
 
-import com.univariety.alumni.core.AbstractAggregateRootEntity;
+import com.univariety.alumni.core.base.AbstractAggregateRootEntity;
 import com.univariety.alumni.domain.subdomain.achievement.AchievementDetail;
 import java.util.HashSet;
 import java.util.Set;

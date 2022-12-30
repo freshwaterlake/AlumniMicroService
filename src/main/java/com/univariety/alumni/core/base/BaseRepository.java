@@ -1,4 +1,4 @@
-package com.univariety.alumni.core;
+package com.univariety.alumni.core.base;
 
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

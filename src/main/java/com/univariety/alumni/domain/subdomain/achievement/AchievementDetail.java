@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.subdomain.achievement;
 
-import com.univariety.alumni.core.AbstractAchievementBaseEntity;
+import com.univariety.alumni.core.base.AbstractAchievementBaseEntity;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;

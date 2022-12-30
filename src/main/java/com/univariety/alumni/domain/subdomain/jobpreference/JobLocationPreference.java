@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.subdomain.jobpreference;
 
-import com.univariety.alumni.core.AbstractJobPreferenceBaseEntity;
+import com.univariety.alumni.core.base.AbstractJobPreferenceBaseEntity;
 import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;

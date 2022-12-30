@@ -1,4 +1,4 @@
-package com.univariety.alumni.core;
+package com.univariety.alumni.core.mappers;
 
 import com.univariety.alumni.domain.aggregate.Achievement;
 import org.mapstruct.AfterMapping;
@@ -15,12 +15,10 @@ public interface AchievementMapper {
 
     @AfterMapping
     default void afterMapping(Achievement achievement, @MappingTarget Achievement achievementOut) {
-        achievementOut.getAchievementDetails()
-            .forEach(achievementDetail -> achievementDetail.setAchievement(achievement));
+        achievementOut.getAchievementDetails().forEach(achievementDetail -> achievementDetail.setAchievement(achievement));
 
         achievementOut.getAchievementDetails().forEach(
-            achievementDetail -> achievementDetail.getTargetAudience()
-                .forEach(target -> target.setAchievementDetail(achievementDetail)));
+            achievementDetail -> achievementDetail.getTargetAudience().forEach(target -> target.setAchievementDetail(achievementDetail)));
     }
 
 }

@@ -1,6 +1,6 @@
 package com.univariety.alumni.service;
 
-import com.univariety.alumni.core.AchievementMapper;
+import com.univariety.alumni.core.mappers.AchievementMapper;
 import com.univariety.alumni.domain.aggregate.Achievement;
 import com.univariety.alumni.repository.AchievementRepository;
 import java.util.UUID;

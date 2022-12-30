@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.aggregate;
 
-import com.univariety.alumni.core.AbstractAggregateRootEntity;
+import com.univariety.alumni.core.base.AbstractAggregateRootEntity;
 import com.univariety.alumni.domain.subdomain.jobpreference.JobCompanyPreference;
 import com.univariety.alumni.domain.subdomain.jobpreference.JobFunctionalAreaPreference;
 import com.univariety.alumni.domain.subdomain.jobpreference.JobIndustryPreference;

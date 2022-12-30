@@ -1,6 +1,6 @@
 package com.univariety.alumni.repository;
 
-import com.univariety.alumni.core.BaseRepository;
+import com.univariety.alumni.core.base.BaseRepository;
 import com.univariety.alumni.domain.aggregate.Student;
 
 public interface StudentRepository extends BaseRepository<Student> {

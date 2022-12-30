@@ -1,7 +1,7 @@
-package com.univariety.alumni.core;
+package com.univariety.alumni.core.base;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.univariety.alumni.domain.aggregate.Student;
+import com.univariety.alumni.domain.aggregate.JobPreference;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.GeneratedValue;
@@ -16,6 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Data
@@ -23,7 +24,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class AbstractStudentBaseEntity {
+@DynamicUpdate
+public abstract class AbstractJobPreferenceBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +33,7 @@ public abstract class AbstractStudentBaseEntity {
 
     @OneToOne
     @JoinColumn(name = "user_guid", referencedColumnName = "id", nullable = false)
-    private Student student;
+    private JobPreference jobPreference;
 
     @Version
     private int version;
@@ -42,14 +44,16 @@ public abstract class AbstractStudentBaseEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    // Note: With out @JsonBackReference, JSON response is going into infinite loop
     @JsonBackReference
-    public Student getStudent() {
-        return student;
+    public JobPreference getJobPreference() {
+        return jobPreference;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.id);
+        // return Objects.hashCode(this.id);
+        return getClass().hashCode();
     }
 
     @Override
@@ -63,7 +67,7 @@ public abstract class AbstractStudentBaseEntity {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        AbstractStudentBaseEntity other = (AbstractStudentBaseEntity) obj;
+        AbstractJobPreferenceBaseEntity other = (AbstractJobPreferenceBaseEntity) obj;
         return Objects.equals(this.id, other.getId());
     }
 

@@ -1,4 +1,4 @@
-package com.univariety.alumni.core;
+package com.univariety.alumni.core.base;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.univariety.alumni.domain.aggregate.StudyPreference;
@@ -23,7 +23,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class AbstractStudyPreferenceEntity {
+public abstract class AbstractStudyPreferenceBaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,7 @@ public abstract class AbstractStudyPreferenceEntity {
     private StudyPreference studyPreference;
 
     @Version
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int version;
 
     @CreationTimestamp
@@ -63,7 +64,7 @@ public abstract class AbstractStudyPreferenceEntity {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        AbstractStudentBaseEntity other = (AbstractStudentBaseEntity) obj;
+        AbstractStudyPreferenceBaseEntity other = (AbstractStudyPreferenceBaseEntity) obj;
         return Objects.equals(this.id, other.getId());
     }
 }

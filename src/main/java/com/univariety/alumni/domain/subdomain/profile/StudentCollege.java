@@ -1,6 +1,6 @@
 package com.univariety.alumni.domain.subdomain.profile;
 
-import com.univariety.alumni.core.AbstractStudentBaseEntity;
+import com.univariety.alumni.core.base.AbstractStudentBaseEntity;
 import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
