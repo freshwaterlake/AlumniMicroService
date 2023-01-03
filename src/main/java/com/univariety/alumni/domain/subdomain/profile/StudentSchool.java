@@ -19,5 +19,4 @@ public class StudentSchool extends AbstractStudentBaseEntity {
     private Integer startYear;
     private Integer completionMonth;
     private Integer completionYear;
-    private StudentMarks studentMarks;
 }

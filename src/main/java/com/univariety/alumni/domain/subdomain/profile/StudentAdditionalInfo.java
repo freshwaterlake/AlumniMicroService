@@ -15,4 +15,12 @@ public class StudentAdditionalInfo {
     private String addressLine2;
     private String pinOrZip;
     private String class12CurriculumCode;
+    private Integer marks;
+    private Integer gpaCode;
+    private String gradeAStarCode;
+    private String gradeACode;
+    private String gradeBCode;
+    private String gradeCCode;
+    private String gradeDCode;
+    private String gradeECode;
 }

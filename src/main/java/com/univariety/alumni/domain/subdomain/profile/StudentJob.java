@@ -12,11 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentJob extends AbstractStudentBaseEntity {
 
-    private String designationCode;
-    private String companyCode;
-    private Integer startMonth;
-    private Integer startYear;
-    private Integer endMonth;
-    private Integer endYear;
-    private Boolean isCurrent;
+    private String designation;
+    private String companyName;
+    private Integer startMonthCode;
+    private Integer startYearCode;
+    private Integer endMonthCode;
+    private Integer endYearCode;
+    private String industryCode;
+    private String functionalAreaCode;
 }

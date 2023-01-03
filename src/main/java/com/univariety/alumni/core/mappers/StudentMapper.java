@@ -13,11 +13,19 @@ public interface StudentMapper {
 
     @AfterMapping
     default void afterMapping(Student student, @MappingTarget Student studentOut) {
-        studentOut.getStudentCollege().setStudent(student);
-        studentOut.getStudentSchool().setStudent(student);
-        studentOut.getStudentCollege().setStudent(student);
+        if (studentOut.getStudentCollege() != null) {
+            studentOut.getStudentCollege().setStudent(student);
+        }
+        if (studentOut.getStudentSchool() != null) {
+            studentOut.getStudentSchool().setStudent(student);
+        }
+        if (studentOut.getStudentCollege() != null) {
+            studentOut.getStudentCollege().setStudent(student);
+        }
         studentOut.getStudentAppliedColleges().forEach(college -> college.setStudent(student));
-        studentOut.getStudentJob().setStudent(student);
+        if (studentOut.getStudentJob() != null) {
+            studentOut.getStudentJob().setStudent(student);
+        }
         studentOut.getStudentJobHistory().forEach(job -> job.setStudent(student));
     }
 }
